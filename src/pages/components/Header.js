@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import './header.css';
 import { NavLink } from 'react-router-dom';
 import logo from '../../../images/logo.png';
-
+import { withRouter } from 'react-router'
 class Header extends Component {
+  handleClick = () => {
+    this.props.history.goBack()
+  }
   render() {
     return (
       <header className="Header">
@@ -29,6 +32,18 @@ class Header extends Component {
               <NavLink to="/perfil" activeClassName="is-selected">
                 Perfil
               </NavLink>
+            </li>
+            <li>
+              <NavLink to="/v" activeClassName="is-selected">
+                Redirect
+              </NavLink>
+            </li>
+            <li>
+              <a
+                onClick={this.handleClick}
+              >
+                Click Click 
+              </a>
             </li>
           </ul>
         </nav>
